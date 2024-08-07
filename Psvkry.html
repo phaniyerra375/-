@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psvkry</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Great+Vibes&family=Roboto+Slab:wght@100..900&family=Satisfy&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+        * {
+            font-family: "Caveat", cursive;
+            font-optical-sizing: auto;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1698138819865-88d3add4838f?q=80&w=2232&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
+            background-size: cover;
+            background-color: black;
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        button {
+            padding: 4px 61px;
+            margin: 17px 51px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #e7d9c200;
+            border: 2px solid #fb00ff;
+            color: #ffffff;
+            border-radius: 36px;
+            box-shadow: 4px 5px 46px 11px #00fffb;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #00c3ff;
+            transition: 1s;
+            box-shadow: 4px 5px 46px 11px #ff00f7;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        alert("\n\n이어팟 사용")
+    </script>
+    <div class="background-image"></div>
+    <div class="controls">
+        <button id="play">Play</button>
+        <button id="pause">Stop</button>
+    </div>
+
+    <div id="player"></div>
+
+    <script>
+        // Load YouTube IFrame API
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // Create YouTube player
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '0',
+                width: '0',
+                videoId: 'h3uJKEDsyCM', // Your YouTube video ID
+                playerVars: { 'start': 7 }, // Start the video at 7 seconds
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            console.log('Player is ready');
+            player.playVideo(); // Automatically start playing the video
+            document.getElementById('play').addEventListener('click', function() {
+                console.log('Play button clicked');
+                player.playVideo();
+            });
+            document.getElementById('pause').addEventListener('click', function() {
+                console.log('Pause button clicked');
+                player.pauseVideo();
+            });
+        }
+
+        function onPlayerStateChange(event) {
+            console.log('Player state changed to: ' + event.data);
+        }
+
+        // Debugging information
+        tag.onload = function() {
+            console.log('YouTube IFrame API script loaded');
+        };
+        tag.onerror = function() {
+            console.log('Error loading YouTube IFrame API script');
+        };
+    </script>
+</body>
+</html>
