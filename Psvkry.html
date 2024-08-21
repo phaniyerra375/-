@@ -3,118 +3,384 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Psvkry</title>
+    <title>Pkchs</title>
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/pbwXCGF/pkchs-logo.jpg">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Great+Vibes&family=Roboto+Slab:wght@100..900&family=Satisfy&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-        * {
-            font-family: "Caveat", cursive;
-            font-optical-sizing: auto;
-        }
-
-        body, html {
+        body {
+            font-family: 'Courier New', Courier, monospace; /* Retro font */
+            background-color: #000000; /* Black background */
+            color: #00ff00; /* Neon green text */
             margin: 0;
             padding: 0;
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
-        .background-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1698138819865-88d3add4838f?q=80&w=2232&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
-            background-size: cover;
-            background-color: black;
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #000000; /* Black background for container */
+            border: 2px solid #ff00ff; /* Neon pink border */
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.5); /* Neon pink glow */
         }
 
-        .controls {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+        p#datetime {
+            background: #ffd600;
+            color: #000000;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #00ffff; /* Neon cyan text */
+            font-size: 24px;
+            margin-top: 20px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        h5 {
+            color: #ff00ff; /* Neon pink */
+            margin: 30px 0;
+        }
+
+        a {
+            color: #ff00ff; /* Neon pink links */
+            text-decoration: underline;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            background-color: #202122; /* Dark background for input */
+            color: #00ff00; /* Neon green text */
+            border: 1px solid #ff00ff; /* Neon pink border */
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace; /* Retro font */
         }
 
         button {
-            padding: 4px 61px;
-            margin: 17px 51px;
-            font-size: 18px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            padding: 10px;
+            background-color: #00ffff; /* Neon pink */
+            color: #000000; /* Black text */
+            border: 1px solid #00ffff; /* Neon cyan border */
             cursor: pointer;
-            background-color: #e7d9c200;
-            border: 2px solid #fb00ff;
-            color: #ffffff;
-            border-radius: 36px;
-            box-shadow: 4px 5px 46px 11px #00fffb;
-            transition: background-color 0.3s;
+            border-radius: 3px;
+            margin: 10px 0;
         }
 
         button:hover {
-            background-color: #00c3ff;
-            transition: 1s;
-            box-shadow: 4px 5px 46px 11px #ff00f7;
+            background-color: #ff00ff; /* Neon cyan on hover */
+            color: #000000; /* Black text on hover */
+        }
+
+        .menubar {
+            background-color: #000000; /* Black background */
+            color: #00ff00; /* Neon green text */
+            padding: 10px;
+            text-align: center;
+            border-bottom: 2px solid #ff00ff; /* Neon pink border */
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(255, 0, 255, 0.5); /* Neon pink shadow */
+        }
+
+        .menubar a {
+            color: #00ffff; /* Neon cyan */
+            margin: 0 15px;
+            text-decoration: underline;
+        }
+
+        .menubar a:hover {
+            text-decoration: none;
+            color: #ff00ff;
+        }
+
+        .logo img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .notepad, .timetable, .mess-menu, #exam {
+            margin-top: 20px;
+        }
+        .section-title{
+            width: 97%;
+            background: rgb(97, 97, 97);
+            height: 1px;
+        }
+        .notepad h1, .timetable h2, .mess-menu h2, #exam h2 {
+            border-bottom: 2px solid #ff00ff; /* Neon pink border */
+            padding-bottom: 10px;
+            text-align: end;
+        }
+
+        .notepad ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+
+        .delete {
+            background-color: #ff4d4d; /* Neon red */
+            color: #fff;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-left: 10px;
+            border-radius: 3px;
+        }
+
+        .delete:hover {
+            background-color: #ff3333; /* Darker red on hover */
+        }
+        strong {
+    color: yellow;
+}
+.safe img{
+    width: 13%;
+    position: fixed;
+    right: 0;
+    top: 10%;
+}
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 10px;
+            }
+            p#datetime {
+                width: 95%;
+            }
+            .menubar a {
+                display: block;
+                margin: 5px 0;
+            }
+            .safe img{
+        width: 34%;
+        position: fixed;
+        right: 0px;
+        top: 132px;
+}
         }
     </style>
 </head>
 <body>
-    <script>
-        alert("'STAY WITH ME'");
-    </script>
-    <div class="background-image"></div>
-    <div class="controls">
-        <button id="play">Play</button>
-        <button id="pause">Stop</button>
-    </div>
-
-    <div id="player"></div>
-
-    <script>
-        // Load YouTube IFrame API
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        // Create YouTube player
-        var player;
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('player', {
-                height: '0',
-                width: '0',
-                videoId: 'h3uJKEDsyCM', // Your YouTube video ID
-                playerVars: { 'start': 7 }, // Start the video at 7 seconds
-                events: {
-                    'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange
+    <div class="safe">
+        <a id="finance" href=""><img src="https://i.ibb.co/SckSvb6/safe.png" alt=""></a>
+        <script>
+            document.getElementById("finance").addEventListener("click", function(event){
+                event.preventDefault();
+                var userInput = prompt("Enter the safe code");
+                if (userInput === "511389") {
+                    alert("Yes Sir..!")
+                    window.location.href = "safelock.html";
+                }
+                else{
+                    alert("You are not allowed to safe")
                 }
             });
+        </script>
+    </div>
+    <div class="logo">
+        <img src="https://i.ibb.co/qgTFjLQ/logo.jpg" alt="Pkchs Logo">
+    </div>
+    <div class="menubar">
+        <a href="#notes">Notepad</a>
+        <a href="#about">Time Table</a>
+        <a href="#services">Mess Menu</a>
+        <a href="#exam">Exams</a>
+    </div>
+
+    <div class="timedate">
+        <p id="datetime"></p>
+    </div>
+
+    <div class="container">
+        <section id="notes" class="notepad">
+            <h1>Notepad</h1>
+            <p>Enter the note you like to save here!</p>
+            <input type="text" id="search-bar">
+            <button onclick="addTask()">Save the note</button>
+            <ul id="list-container"></ul>
+        </section>
+
+        <section id="about" class="timetable">
+            <h2>Time Table</h2>
+            <div class="section-title"></div>
+            <p><strong style="color: #ff00ff;    font-size: 23px;">Monday</strong><br><br>
+                <p><strong>09:00 - 10:55 am </strong>- Big Data Lab<br> (V102)<br>
+                    <p><strong>02:00 - 03:55 pm </strong>- Big Data<br> (S204)<br>
+                    <p><strong>04:00 - 05:30 pm </strong>- Information Retrieval<br> (S305)
+            </p>
+            <div class="section-title"></div>
+            <p><strong style="color: #ff00ff;    font-size: 23px;">Tuesday</strong><br><br>
+                <p><strong>09:00 - 10:55 am</strong> - Information Retrieval Lab<br> (V602)<br>
+                    <p><strong>02:00 - 03:55 pm</strong> - Information Retrieval<br> (S305)
+            </p>
+            <div class="section-title"></div>
+            <p><strong style="color: #ff00ff;    font-size: 23px;">Wednesday</strong><br><br>
+                <p><strong>11:00 - 11:55 am</strong> - Big Data <br>(S204)
+            </p>
+            <div class="section-title"></div>
+        </section>
+
+        <section id="services" class="mess-menu">
+            <h2>Mess Menu</h2>
+            <div class="section-title"></div>
+            <h5>Monday</h5>
+            <p><strong>BREAKFAST (7:30 am - 9:00 am)</strong></p>
+            <p>Idly, Peanut Chutney, Sambar, Boiled egg, Bread, Butter, Jam, Tea, Coffee, Milk</p>
+            <p><strong>LUNCH (12:00 pm - 2:00 pm)</strong></p>
+            <p>Phulka, Channa Masala, White Rice, Tomato Drumstick/Cauliflower Curry, Pappucharu, Curd, Roti Chutney, Green salad</p>
+            <p><strong>SNACKS (4:30 pm - 5:30 pm)</strong></p>
+            <p>Boiled masala corn, Tea, Coffee, Milk</p>
+            <p><strong>DINNER (7:15 pm - 8:30 pm)</strong></p>
+            <p>Phulka, Mixed Vegetable Curry, White Rice, Sambar, Vegetable Curry, Buttermilk, Banana</p>
+
+            <div class="section-title"></div>
+            <h5>Tuesday</h5>
+            <p><strong>BREAKFAST (7:30 am - 9:00 am)</strong></p>
+            <p>Potato Wheat Paratha, Curd, Pickle, Boiled Egg, Bread, Butter, Jam, Tea, Coffee, Milk</p>
+            <p><strong>LUNCH (12:00 pm - 2:00 pm)</strong></p>
+            <p>Phulka, Methi Chaman, White Rice, Sambar, Vegetable South Curry, Curd, Roti Chutney, Fryums</p>
+            <p><strong>SNACKS (4:30 pm - 5:30 pm)</strong></p>
+            <p>Punugu, Chutney, Tea, Coffee, Milk</p>
+            <p><strong>DINNER (7:15 pm - 8:30 pm)</strong></p>
+            <p>Phulka, Pesarattu (Moong Dal Dosa), Sambar, White Rice, Curd</p>
+
+            <div class="section-title"></div>
+            <h5>Wednesday</h5>
+            <p><strong>BREAKFAST (7:30 am - 9:00 am)</strong></p>
+            <p>Upma, Chutney, Sambar, Bread, Butter, Jam, Tea, Coffee, Milk</p>
+            <p><strong>LUNCH (12:00 pm - 2:00 pm)</strong></p>
+            <p>Phulka, Kadai Vegetable, White Rice, Tomato Dal, Cabbage Peas Curry, Rasam, Curd, Roti Chutney, Fryums, Green Salad</p>
+            <p><strong>SNACKS (4:30 pm - 5:30 pm)</strong></p>
+            <p>Channa/Peanut Sundal, Tea, Coffee, Milk</p>
+            <p><strong>DINNER (7:15 pm - 8:30 pm)</strong></p>
+            <p>Phulka, Paneer Butter Masala, Andhra Chicken Curry, White rice, Rasam, Buttermilk</p>
+
+            <div class="section-title"></div>
+            <h5>Thursday</h5>
+            <p><strong>BREAKFAST (7:30 am - 9:00 am)</strong></p>
+            <p>Chole Poori, Channa Masala, Bread, Butter, Jam, Tea, Coffee, Milk</p>
+            <p><strong>LUNCH (12:00 pm - 2:00 pm)</strong></p>
+            <p>Phulka, Dal Tadka, White rice, Sambar, Potato Kara Curry, Curd, Roti, Chutney, Fryums</p>
+            <p><strong>SNACKS (4:30 pm - 5:30 pm)</strong></p>
+            <p>Green Banana Bajji/Onion Pakoda, Chutney, Tea, Coffee, Milk</p>
+            <p><strong>DINNER (7:15 pm - 8:30 pm)</strong></p>
+            <p>Phulka, Black Channa Curry, White Rice, Sambar, Cabbage -65, Buttermilk, Banana</p>
+
+            <div class="section-title"></div>
+            <h5>Friday</h5>
+            <p><strong>BREAKFAST (7:30 am - 9:00 am)</strong></p>
+            <p>Rava Kitchadi, Chutney, Egg Omelette, Bread, Butter, Jam, Tea, Coffee, Milk</p>
+            <p><strong>LUNCH (12:00 pm - 2:00 pm)</strong></p>
+            <p>Phulka, Black Channa Masala, White rice, Tindly Peanut Fry (Dondakaya), Mor Kuzhambu (Dahee ka Soop), Rasam, Curd, Roti, Chutney, Fryums, Green Salad</p>
+            <p><strong>SNACKS (4:30 pm - 5:30 pm)</strong></p>
+            <p>Variety of Cake, Tea, Coffee, Milk</p>
+            <p><strong>DINNER (7:15 pm - 8:30 pm)</strong></p>
+            <p>Phulka, Kadai Paneer, North Indian Style - Chicken Curry, White rice, Rasam, Buttermilk</p>
+
+            <div class="section-title"></div>
+            <h5>Saturday</h5>
+            <p><strong>BREAKFAST (7:30 am - 9:00 am)</strong></p>
+            <p>Plain Paratha (Wheat), Dum Potato Curry, Bread, Butter, Jam, Tea, Coffee, Milk</p>
+            <p><strong>LUNCH (12:00 pm - 2:00 pm)</strong></p>
+            <p>Phulka, Mix Veg. Curry, White Rice, Variety of Dal (Mudda Pappu), Ghee, Lady Finger (Bendi) Peanut Fry, Sweet Pongal, Curd, Mango Pickle (Avakaya), Fryums</p>
+            <p><strong>SNACKS (4:30 pm - 5:30 pm)</strong></p>
+            <p>Potato Samosa, Sauce, Tea, Coffee, Milk</p>
+            <p><strong>DINNER (7:15 pm - 8:30 pm)</strong></p>
+            <p>Phulka, Aloo Khorma, Tomato Rice, Raita, Buttermilk, Banana</p>
+
+            <div class="section-title"></div>
+            <h5>Sunday</h5>
+            <p><strong>BREAKFAST (7:30 am - 9:00 am)</strong></p>
+            <p>Set Dosa (Uttappam), Potato Masala, Groundnut Chutney, Sambar, Bread, Butter, Jam, Tea, Coffee, Milk</p>
+            <p><strong>LUNCH (12:00 pm - 2:00 pm)</strong></p>
+            <p>Chicken Biryani, Veg-Biryani, Raita, Veg. Gravy, Onion & Lemon</p>
+            <p><strong>SNACKS (4:30 pm - 5:30 pm)</strong></p>
+            <p>Muffin (Eggless), Tea, Coffee, Milk</p>
+            <p><strong>DINNER (7:15 pm - 8:30 pm)</strong></p>
+            <p>Phulka, Vegetables Kofta Curry, Sambar Rice/Rasam Rice, Fryums, Buttermilk, Semiya Payasam</p>  
+        </section>
+
+        <section id="exam">
+            <h2>Mid Exam</h2>
+            <hr><p style="text-align: center;">Not Updated</p><hr>
+        </section>
+    </div>
+
+    <script>
+        function updateTime() {
+            var today = new Date();
+            var options = {
+                day: 'numeric',
+                month: 'short',
+                weekday: 'short',
+                hour: 'numeric',
+                minute: 'numeric',
+                hour12: true
+            };
+            var dateTime = today.toLocaleDateString(undefined, options);
+            document.getElementById('datetime').innerText = dateTime;
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        function addTask() {
+            const input = document.getElementById('search-bar');
+            const ul = document.getElementById('list-container');
+            const li = document.createElement('li');
+            li.innerHTML = `
+                ${input.value} 
+                <button class="delete" onclick="deleteTask(this)">Delete</button>
+            `;
+            ul.appendChild(li);
+
+            // Save the task to local storage
+            saveTasks();
+
+            input.value = '';
         }
 
-        function onPlayerReady(event) {
-            console.log('Player is ready');
-            player.playVideo(); // Automatically start playing the video
-            document.getElementById('play').addEventListener('click', function() {
-                console.log('Play button clicked');
-                player.playVideo();
+        function saveTasks() {
+            const ul = document.getElementById('list-container');
+            const tasks = [];
+            ul.querySelectorAll('li').forEach(li => {
+                tasks.push(li.innerHTML);
             });
-            document.getElementById('pause').addEventListener('click', function() {
-                console.log('Pause button clicked');
-                player.pauseVideo();
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+
+        function loadTasks() {
+            const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            const ul = document.getElementById('list-container');
+            tasks.forEach(task => {
+                const li = document.createElement('li');
+                li.innerHTML = task;
+                ul.appendChild(li);
             });
         }
 
-        function onPlayerStateChange(event) {
-            console.log('Player state changed to: ' + event.data);
+        function deleteTask(button) {
+            const ul = document.getElementById('list-container');
+            ul.removeChild(button.parentElement);
+            saveTasks();
         }
 
-        // Debugging information
-        tag.onload = function() {
-            console.log('YouTube IFrame API script loaded');
-        };
-        tag.onerror = function() {
-            console.log('Error loading YouTube IFrame API script');
-        };
+        // Load tasks when the page loads
+        document.addEventListener('DOMContentLoaded', loadTasks);
     </script>
 </body>
 </html>
